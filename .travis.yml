@@ -9,4 +9,3 @@ deploy:
   gem: omniauth-soup
   on:
     tags: true
-    repo: fliiiix/omniauth-soup
