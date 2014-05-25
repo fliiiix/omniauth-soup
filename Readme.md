@@ -30,7 +30,7 @@ end
 
 ## Contributing
 
-If you have a problem just open a issue.
+If you have a problem just open a issue. Or fix it yourself.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
