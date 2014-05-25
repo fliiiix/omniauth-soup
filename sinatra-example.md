@@ -8,7 +8,7 @@ require 'omniauth-soup'
 
 use Rack::Session::Cookie
 use OmniAuth::Builder do
-  provider :soup, "xxx", "xxxx"
+  provider :soup, "Key", "Secret"
 end
 
 get '/' do
