@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 1.9.3
+  - 2.1.0
+deploy:
+  provider: rubygems
+  api_key:
+    secure: XVgdeDhY3pJg5qLY2+/iIogXc5UEVsUCFHrx8IysUhrEbOHoJXwJ8BJMmMHwNGyOU06QWVRXTL9kUp0sIJTx6fVzUcJUgDyPvh6Z0Jm0gndoM65vWiWfujufu6gmGX2+iuvXlNlEFFHvPDVX8tTobqkc0QoOxPpoD0ha0tOkXP8=
+  gem: omniauth-soup
+  on:
+    tags: true
+    repo: fliiiix/omniauth-auphonic
