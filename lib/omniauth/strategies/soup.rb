@@ -1,26 +1,28 @@
-require 'omniauth-oauth2'
+require 'omniauth-oauth'
+require 'json'
 
 module OmniAuth
   module Strategies
-    class Soup < OmniAuth::Strategies::OAuth2
+    class Soup < OmniAuth::Strategies::OAuth
       
       option :client_options, {
-        :site => 'https://api.soup.io/api/v1.1',
-        :authorize_url => 'https://auphonic.com/oauth2/authorize',
-        :token_url => 'https://api.soup.io/oauth/request_token'
+        :site => 'https://api.soup.io',
+        :authorize_path => '/oauth/authorize',
+        :access_token_path => '/oauth/access_token',
+        :request_token_path => '/oauth/request_token'
       }
 
       def request_phase
         super
       end
 
-      uid { raw_info['user_id'] }
+      uid { raw_info["name"] }
 
       info do
         {
-          'name' => raw_info['username'],
-          'email' => raw_info['email'],
-          'nickname' => raw_info['username']
+          'name' => raw_info["name"] ,
+          'email' => "",
+          'nickname' => raw_info["name"],
         }
       end
 
@@ -29,7 +31,7 @@ module OmniAuth
       end
 
       def raw_info
-        @raw_info ||= access_token.get("/api/user.json").parsed["data"]
+        @raw_info ||= JSON.parse(access_token.get("/api/v1.1/authenticate").body)["user"]
       end
 
     end
