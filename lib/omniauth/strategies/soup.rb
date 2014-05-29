@@ -16,7 +16,8 @@ module OmniAuth
         super
       end
 
-      uid { raw_info["name"] }
+      #I'm sorry for that
+      uid { raw_info["resource"].split("/").last }
 
       info do
         {
